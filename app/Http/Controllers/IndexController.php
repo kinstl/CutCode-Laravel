@@ -26,7 +26,8 @@ class IndexController extends Controller
 
     public function contactForm(ContactFormRequest $request)
     {
-        Mail::to("wolk750@yandex.ru")->send(new ContactForm($request->validated()));
+        $mailTo = "";
+        Mail::to($mailTo)->send(new ContactForm($request->validated()));
 
         return redirect(route("contacts"));
     }
