@@ -8,7 +8,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('login', [AuthController::class, 'index'])->name('login');
     Route::post('login_process', [AuthController::class, 'login'])->name('login_process');
 
-    Route::middleware(['auth:admin', 'admin'])->group(function () {
-        Route::resource('posts', PostController::class);
-    });
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::resource('posts', PostController::class);
 });
